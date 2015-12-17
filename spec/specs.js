@@ -12,4 +12,15 @@ describe("Game", function() {
     expect(newGame.playerScore).to.be.at.least(2);
   });
 
+  it("gets the dealerScore from two dealt cards", function() {
+    var newGame = new Game(0,0);
+    newGame.deal("dealer");
+    newGame.deal("dealer");
+    expect(newGame.dealerScore).to.be.at.least(2);
+  });
+
+  it("stops the game if either player gets a score over 21", function() {
+    var newGame = new Game(15, 22);
+    expect(newGame.gameOver()).to.eql(true);
+  });
 });

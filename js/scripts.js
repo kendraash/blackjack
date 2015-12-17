@@ -11,3 +11,10 @@ Game.prototype.deal = function(person) {
   else
     return (this.dealerScore += cardValue);
 }
+
+Game.prototype.gameOver = function() {
+  if (this.dealerScore >= 21 || this.playerScore >= 21)
+    return true;
+  else
+    return false;
+}
